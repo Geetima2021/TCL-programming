@@ -1,0 +1,1 @@
+Reading the hold and setup slack including the startpoint and end point to be written in an excel sheet or html table.
