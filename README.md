@@ -7,6 +7,8 @@ Problem statement:
   - Link the design
   - Read the SDC file
   - Create directories to save the generated report file for the different verilog files  (At present only one directory is created – one verilog file is used)
+
+
 Sub task – 
  - Renaming the report files
        The report files are named in the following format (PVTCorner_Post_DFlevel_rpttype.rpt) eg ff100C1v65_Post_synthesis_minmax.rpt
