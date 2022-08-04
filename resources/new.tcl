@@ -1,6 +1,6 @@
 #! /bin/env tclsh
 
-set new [glob Post_synthesis/*.rpt]
+set new [glob Post_Synthesis/*.rpt]
 
 foreach report $new {
 	set rd_report [open $report r]
