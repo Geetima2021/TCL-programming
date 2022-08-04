@@ -12,10 +12,10 @@ Problem statement:
 Sub task – 
  - Renaming the report files
        The report files are named in the following format (PVTCorner_Post_DFlevel_rpttype.rpt) eg ff100C1v65_Post_synthesis_minmax.rpt
- -  Generation of html table
- -  From the generated report – Extract the 
+ - -  Generation of html table
+ - - From the generated report – Extract the 
      a. Hold and setup slack b. Start-point and end point for both the setup and hold case and thereafter generate a table consisting the above values
- -  Combine the start-point and endpoint values of setup and hold and placed it into two different columns
+ - - Combine the start-point and endpoint values of setup and hold and placed it into two different columns
     
     Example table 
     
