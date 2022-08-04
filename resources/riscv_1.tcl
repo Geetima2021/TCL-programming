@@ -79,7 +79,8 @@ close $rd_report
 }
 
 
-#Program taken from online need to find out the source
+#Program taken online need to find out the source and this part is included at present to check whether it works with STA or noe
+#This generated table is not the part of the required html table
 
 proc TAG {name args} {
     set body [lindex $args end]
