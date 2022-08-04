@@ -21,13 +21,13 @@ foreach line $lib_dir {
 	read_verilog rvmyth.synthesis.v
 	link_design rvmyth
 	read_sdc -echo rvmyth.sdc
-	mkdir -p Post_synthesis
+	mkdir -p POST_SYNTHESIS
 
-	report_checks -path_delay min_max -fields {nets cap slew input_pins} -format full_clock_expanded -digits {4} > Post_synthesis/$new_name$name2.rpt
+	report_checks -path_delay min_max -fields {nets cap slew input_pins} -format full_clock_expanded -digits {4} > POST_SYNTHESIS/$new_name$name2.rpt
 
 }
 
-set new [glob Post_synthesis/*.rpt]
+set new [glob POST_SYNTHESIS/*.rpt]
 
 foreach report $new {
 	set rd_report [open $report r]
