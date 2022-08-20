@@ -8,16 +8,15 @@ set count 0
 foreach rpt_file $rpt {	
 	set rd_report [open $rpt_file r]
 	set filename [lindex [split [file rootname [file tail $rpt_file] ] _ ] 0] 	
-        set lineno 1	
 	set group 0
   	while {[gets $rd_report line] != -1 } {
 		#set start($lineno)
 		set pattern {Startpoint:}
-		if {[regexp $pattern $line $lineno ]} {	
+		if {[regexp $pattern $line ]} {	
 		set start($group) [lindex $line 1] 
 	        } 		
 		set pattern1 {Endpoint:}
-		if {[regexp $pattern1 $line $lineno]} {
+		if {[regexp $pattern1 $line ]} {
 		set end($group) [lindex $line 1]
 		}		
 		set pattern2 {slack}	
@@ -25,7 +24,6 @@ foreach rpt_file $rpt {
 		set sla($group) [lindex [string map {"       " ""} $line] 0]
 		incr group
 		}
-		incr lineno
          }	
 	close $rd_report
 	set start0 $start(0)
