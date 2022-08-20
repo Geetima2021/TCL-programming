@@ -25,4 +25,9 @@ Sub task –
  
  Thereafter the WNS, TNS and FEP shall be appended to the table.
  
+ ## Acknowledgement
+ 
+- [Phillip Guhring](https://github.com/thesourcerer8), Software architect at Libresilicon Association.
+ 
+- [Kunal Ghosh](https://github.com/kunalg123), Co-founder, VSD Corp. Pvt. Ltd.
  
