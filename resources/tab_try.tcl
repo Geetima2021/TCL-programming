@@ -20,12 +20,9 @@ foreach rpt_file $rpt {
 		if {[regexp $pattern1 $line $lineno]} {
 		set end($group) [lindex $line 1]
 		}		
-		#set pattern {[^\s+\-?\d+\.\d*\s][slack]}
 		set pattern2 {slack}	
-		if {[regexp $pattern2 $line $lineno]} {
-		set slack1 [lindex [string map {"       " ""} $line] 0]
-		set try [concat $slack1 $lineno]
-  		puts "slack value is $try "
+		if {[regexp $pattern2 $line ]} {
+		set sla($group) [lindex [string map {"       " ""} $line] 0]
 		incr group
 		}
 		incr lineno
@@ -35,7 +32,9 @@ foreach rpt_file $rpt {
 	set start1 $start(1)
 	set end0 $end(0)
 	set end1 $end(1)
-        puts $report "<td>$count</td><td>$filename</td><td>$start0/$end0</td><td>$start1/$end1</td><td>$slack1</td><td>$slack1</td></tr>"
+	set sla0 $sla(0)
+	set sla1 $sla(1)
+        puts $report "<td>$count</td><td>$filename</td><td>$start1/$end1</td><td>$start0/$end0</td><td>$sla1</td><td>$sla0</td></tr>"
 	incr count
 }
 puts $report {</table></body></html>}
