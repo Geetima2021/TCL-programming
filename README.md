@@ -3,11 +3,10 @@ Problem statement:
     1. To optimize the TCL script for STA – Main task
 
   - Read the libraries files one by one
-  - Read the verilog files one by one (At present only one verilog file is use)
+  - Read the verilog files one by one 
   - Link the design
   - Read the SDC file
-  - Create directories to save the generated report file for the different verilog files  (At present only one directory is created – one verilog file is used)
-
+  - Create directories to save the generated report file for the different verilog files  
 
 Sub task – 
  - Renaming the report files
