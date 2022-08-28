@@ -24,9 +24,7 @@ Sub task –
  
  Thereafter the WNS, TNS and FEP shall be appended to the table.
  
- ## Acknowledgement
- 
- This work is in continuation to the vsdhdp titled ``Performance characterization for VSDBabySoC comprising of RISC-V core, PLL and DAC``.
+ ## Acknowledgemwnt
  
 - [Phillip Guhring](https://github.com/thesourcerer8), Software architect at Libresilicon Association.
 - [Kunal Ghosh](https://github.com/kunalg123), Co-founder, VSD Corp. Pvt. Ltd.
