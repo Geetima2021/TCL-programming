@@ -16,7 +16,7 @@ Sub task –
      a. Hold and setup slack b. Start-point and end point for both the setup and hold case and thereafter generate a table consisting the above values
    - Combine the start-point and endpoint values of setup and hold and placed it into two different columns
    
-   The timing libraries are available in this [folder](https://github.com/Geetima2021/vsdpcvrd/tree/main/resources/timing_libs).
+   The timing libraries are available in this [folder](https://github.com/Geetima2021/vsdpcvrd/tree/main/resources/timing_libs). The verilog files are available [here](https://github.com/Geetima2021/vsdpcvrd/tree/main/resources/openlane_opensta/verilog).
     
  Example table 
  
