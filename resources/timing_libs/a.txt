@@ -1,1 +1,4 @@
+- All the skywater timing libraries used for sta analysis except for sky130_fd_sc_hd__ff_n40C_1v95.lib and 
+sky130_fd_sc_hd__ss_n40C_1v60.lib as the size is more that 25MB and cannot be uploaded in normal github. 
+Visit http s://github.com/google/skywater-pdk for its installation.
 
