@@ -1,5 +1,5 @@
 #! /bin/env tclsh
-set report [open build_report1.html w+]
+set report [open build_report.html w+]
 puts $report {<html>}
 puts $report {<style>
 body {
