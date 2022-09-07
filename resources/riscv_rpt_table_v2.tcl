@@ -122,7 +122,7 @@ foreach rpt_file $rpt {
 	incr count
 }
 
-puts $report "<tr><td><br></td></tr>"
+puts $report {<tr><td colspan = "11" ><br></td></tr>}
 puts $report {<tr><td colspan = "10" ><h1> Static timing analysis - Post CTS</h1></td></tr>}
 puts $report {<tr><td title='Simulation Number'><h2>SI No.</h2></td><td title='Process/Voltage/Temperature Corner'><h2>PVT Corner</h2></td><td><h2>Start/end point(hold)</h2></td><td><h2>Start/end point(setup)</h2></td><td title='nanoseconds'><h2>Hold slack</h2></td><td title='nanoseconds'><h2>Setup slack</h2></td><td title='nanoseconds'><h2>WNS</h2></td><td title='nanoseconds'><h2>TNS</h2></td></tr>}
 
@@ -188,8 +188,7 @@ foreach rpt_file $rpt {
 	incr count
 }
 
-puts $report {<tr><td><br></td></tr>}
-
+puts $report {<tr><td colspan = "11" ><br></td></tr>}
 puts $report {<tr><td colspan = "10" ><h1> Static timing analysis - Post Layout</h1></td></tr>}
 puts $report {<tr><td title='Simulation Number'><h2>SI No.</h2></td><td title='Process/Voltage/Temperature Corner'><h2>PVT Corner</h2></td><td><h2>Start/end point(hold)</h2></td><td><h2>Start/end point(setup)</h2></td><td title='nanoseconds'><h2>Hold slack</h2></td><td title='nanoseconds'><h2>Setup slack</h2></td><td title='nanoseconds'><h2>WNS</h2></td><td title='nanoseconds'><h2>TNS</h2></td></tr>}
 
