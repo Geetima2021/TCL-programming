@@ -25,7 +25,7 @@ Sub task –
 - Initially ``riscv_sta.tcl`` file is written for Post_synthesis netlist STA analysis using opensource tool ``OpenSTA`` across the different skywater130 timing libraries. The file is executed using the ``sta <tclfile>`` command. The generated report is saved in [Post_Synthesis directory](https://github.com/Geetima2021/TCL-programming/tree/main/resources/Post_Synthesis).
 - Next an html table is created from the generated report file whose code is available in ``riscv_rpt_table.tcl`` file and ``build_report.html`` is its html file, automatically generated from the tcl code. For execuction of the code ``tclsh <tcl file2>`` command is used.
 - Next the script is further modified for simultaneous sta analysis of all the PnR netlists available. ``riscv_conf.tcl``is the modified tcl file used in sta analysis of the different netlist use in PnR flow of RISCV [Note: The netlists and the spef file are generated using openLANE flow]. The generated reports are saved in their respective folder. Apart from the minmax report, wns and tns report are also generated. The Fep report is to be generated.
-- The script ``riscv_rpt_table.tcl`` is to be modified to append the wns, tns and fep values in the html table. The Post_CTS and Post_Layout table is to be generated.
+- The script ``riscv_rpt_table_V2.tcl`` is the modified script where tns and wns values are added to the html table. The Post_CTS and Post_Layout table is also generated.
 
  
  ## Acknowledgement
