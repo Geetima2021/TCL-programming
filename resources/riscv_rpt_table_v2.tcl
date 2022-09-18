@@ -58,7 +58,7 @@ input:invalid {
 puts $report {<body><table border="1">}
 puts $report {<tr><td colspan = "10" > <h1> Static timing analysis - Post Synthesis</h1></td></tr>}
 
-puts $report {<tr><td title='Simulation Number'><h2>SI No.</h2></td><td title='Process/Voltage/Temperature Corner'><h2>PVT Corner</h2></td><td><h2>Start/end point(hold)</h2></td><td><h2>Start/end point(setup)</h2></td><td title='nanoseconds'><h2>Hold slack</h2></td><td title='nanoseconds'><h2>Setup slack</h2></td><td title='nanoseconds'><h2>WNS</h2></td><td title='nanoseconds'><h2>TNS</h2></td></tr>}
+puts $report {<tr><td title='Simulation Number'><h2>SI No.</h2></td><td title='Process/Voltage/Temperature Corner'><h2>PVT Corner</h2></td><td><h2>Start/end point(hold)</h2></td><td><h2>Start/end point(setup)</h2></td><td title='nanoseconds'><h2>Hold slack</h2></td><td title='nanoseconds'><h2>Setup slack</h2></td><td title='nanoseconds'><h2>WNS</h2></td><td title='nanoseconds'><h2>FEP (setup)</h2></td><td title='nanoseconds'><h2>TNS</h2></td></tr>}
 
 set rpt [lsort [glob Post_Synthesis/*.rpt] ]
 set count 1
@@ -83,16 +83,7 @@ foreach rpt_file $rpt {
 		set pattern2 {slack}	
 		if {[regexp $pattern2 $line ]} {
 		set sla($group) [lindex $line 0]
-		incr group
-		#set new [regsub "$rd_report" $filenamewns ]
-		#puts $new
-		#if {[lindex $line 0] > 0} {
-		#set a "-"
-		#puts $a
-		#} else {
-		#set a 1
-		#puts $a
-		#}		
+		incr group	
 		}		
          }	
 	close $rd_report
@@ -100,6 +91,11 @@ foreach rpt_file $rpt {
 		set pattern {wns}
 		if {[regexp $pattern $line]} {
 		set worse_negative_slack [lindex $line 1]
+		if {[lindex $line 1] < 0} {
+		set failing_endpoint 1
+		} else {
+		set failing_endpoint "-"		
+		}
 		}			
 	}
 	close $wns_report
@@ -117,14 +113,14 @@ foreach rpt_file $rpt {
 	set sla0 $sla(0)
 	set sla1 $sla(1)
 			 
-        puts $report "<tr><td>$count</td><td><a href ='$rpt_file' target ='_blank'>$filename </a></td><td>$start0/$end0</td><td>$start1/$end1</td><td>$sla0</td><td>$sla1</td><td>$worse_negative_slack</td><td>$total_negative_slack</td></tr>"
+        puts $report "<tr><td>$count</td><td><a href ='$rpt_file' target ='_blank'>$filename </a></td><td>$start0/$end0</td><td>$start1/$end1</td><td>$sla0</td><td>$sla1</td><td>$worse_negative_slack</td><td>$failing_endpoint</td><td>$total_negative_slack</td></tr>"
 
 	incr count
 }
 
 puts $report {<tr><td colspan = "11" ><br></td></tr>}
 puts $report {<tr><td colspan = "10" ><h1> Static timing analysis - Post CTS</h1></td></tr>}
-puts $report {<tr><td title='Simulation Number'><h2>SI No.</h2></td><td title='Process/Voltage/Temperature Corner'><h2>PVT Corner</h2></td><td><h2>Start/end point(hold)</h2></td><td><h2>Start/end point(setup)</h2></td><td title='nanoseconds'><h2>Hold slack</h2></td><td title='nanoseconds'><h2>Setup slack</h2></td><td title='nanoseconds'><h2>WNS</h2></td><td title='nanoseconds'><h2>TNS</h2></td></tr>}
+puts $report {<tr><td title='Simulation Number'><h2>SI No.</h2></td><td title='Process/Voltage/Temperature Corner'><h2>PVT Corner</h2></td><td><h2>Start/end point(hold)</h2></td><td><h2>Start/end point(setup)</h2></td><td title='nanoseconds'><h2>Hold slack</h2></td><td title='nanoseconds'><h2>Setup slack</h2></td><td title='nanoseconds'><h2>WNS</h2></td><td title='nanoseconds'><h2>FEP (setup)</h2></td><td title='nanoseconds'><h2>TNS</h2></td></tr>}
 
 set rpt [lsort [glob Post_CTS/*.rpt] ]
 set count 1
@@ -149,16 +145,7 @@ foreach rpt_file $rpt {
 		set pattern2 {slack}	
 		if {[regexp $pattern2 $line ]} {
 		set sla($group) [lindex $line 0]
-		incr group
-		#set new [regsub "$rd_report" $filenamewns ]
-		#puts $new
-		#if {[lindex $line 0] > 0} {
-		#set a "-"
-		#puts $a
-		#} else {
-		#set a 1
-		#puts $a
-		#}		
+		incr group		
 		}		
          }	
 	close $rd_report
@@ -166,6 +153,11 @@ foreach rpt_file $rpt {
 		set pattern {wns}
 		if {[regexp $pattern $line]} {
 		set worse_negative_slack [lindex $line 1]
+		if {[lindex $line 1] < 0} {
+		set failing_endpoint 1
+		} else {
+		set failing_endpoint "-"		
+		}
 		}			
 	}
 	close $wns_report
@@ -183,14 +175,14 @@ foreach rpt_file $rpt {
 	set sla0 $sla(0)
 	set sla1 $sla(1)
 			 
-        puts $report "<tr><td>$count</td><td><a href ='$rpt_file' target ='_blank'>$filename </a></td><td>$start0/$end0</td><td>$start1/$end1</td><td>$sla0</td><td>$sla1</td><td>$worse_negative_slack</td><td>$total_negative_slack</td></tr>"
+        puts $report "<tr><td>$count</td><td><a href ='$rpt_file' target ='_blank'>$filename </a></td><td>$start0/$end0</td><td>$start1/$end1</td><td>$sla0</td><td>$sla1</td><td>$worse_negative_slack</td><td>$failing_endpoint</td><td>$total_negative_slack</td></tr>"
 
 	incr count
 }
 
 puts $report {<tr><td colspan = "11" ><br></td></tr>}
 puts $report {<tr><td colspan = "10" ><h1> Static timing analysis - Post Layout</h1></td></tr>}
-puts $report {<tr><td title='Simulation Number'><h2>SI No.</h2></td><td title='Process/Voltage/Temperature Corner'><h2>PVT Corner</h2></td><td><h2>Start/end point(hold)</h2></td><td><h2>Start/end point(setup)</h2></td><td title='nanoseconds'><h2>Hold slack</h2></td><td title='nanoseconds'><h2>Setup slack</h2></td><td title='nanoseconds'><h2>WNS</h2></td><td title='nanoseconds'><h2>TNS</h2></td></tr>}
+puts $report {<tr><td title='Simulation Number'><h2>SI No.</h2></td><td title='Process/Voltage/Temperature Corner'><h2>PVT Corner</h2></td><td><h2>Start/end point(hold)</h2></td><td><h2>Start/end point(setup)</h2></td><td title='nanoseconds'><h2>Hold slack</h2></td><td title='nanoseconds'><h2>Setup slack</h2></td><td title='nanoseconds'><h2>WNS</h2></td><td title='nanoseconds'><h2>FEP (setup)</h2></td><td title='nanoseconds'><h2>TNS</h2></td></tr>}
 
 set rpt [lsort [glob Post_Layout/*.rpt] ]
 set count 1
@@ -216,15 +208,7 @@ foreach rpt_file $rpt {
 		if {[regexp $pattern2 $line ]} {
 		set sla($group) [lindex $line 0]
 		incr group
-		#set new [regsub "$rd_report" $filenamewns ]
-		#puts $new
-		#if {[lindex $line 0] > 0} {
-		#set a "-"
-		#puts $a
-		#} else {
-		#set a 1
-		#puts $a
-		#}		
+			
 		}		
          }	
 	close $rd_report
@@ -232,6 +216,11 @@ foreach rpt_file $rpt {
 		set pattern {wns}
 		if {[regexp $pattern $line]} {
 		set worse_negative_slack [lindex $line 1]
+		if {[lindex $line 1] < 0} {
+		set failing_endpoint 1
+		} else {
+		set failing_endpoint "-"		
+		}
 		}			
 	}
 	close $wns_report
@@ -249,7 +238,7 @@ foreach rpt_file $rpt {
 	set sla0 $sla(0)
 	set sla1 $sla(1)
 			 
-        puts $report "<tr><td>$count</td><td><a href ='$rpt_file' target ='_blank'>$filename </a></td><td>$start0/$end0</td><td>$start1/$end1</td><td>$sla0</td><td>$sla1</td><td>$worse_negative_slack</td><td>$total_negative_slack</td></tr>"
+        puts $report "<tr><td>$count</td><td><a href ='$rpt_file' target ='_blank'>$filename </a></td><td>$start0/$end0</td><td>$start1/$end1</td><td>$sla0</td><td>$sla1</td><td>$worse_negative_slack</td><td>$failing_endpoint</td><td>$total_negative_slack</td></tr>"
 
 	incr count
 }
