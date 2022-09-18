@@ -20,8 +20,8 @@ foreach lines $lib_dir {
 			link_design rvmyth	
 			read_sdc -echo rvmyth.sdc
 			report_checks -path_delay min_max -fields {nets cap slew input_pins} -digits {4} > Post_Synthesis/$new_name\_Post_synthesis_minmax.rpt
-			report_wns > Post_Synthesis_WNS/$new_name\_Post_synthesis_wns.rpt
-			report_tns > Post_Synthesis_TNS/$new_name\_Post_synthesis_tns.rpt
+			report_wns -digits {4} > Post_Synthesis_WNS/$new_name\_Post_synthesis_wns.rpt
+			report_tns -digits {4} > Post_Synthesis_TNS/$new_name\_Post_synthesis_tns.rpt
 			}
 		set cts_file_path [lindex $verilog_files 1]
 		if {[file exists $cts_file_path]} {
@@ -35,8 +35,8 @@ foreach lines $lib_dir {
 			set_propagated_clock [all_clocks]
 			#report_checks -path_delay min_max -fields {nets cap slew input_pins} -format full_clock_expanded -digits {4} > Post_CTS/$new_name\_Post_cts_minmax.rpt
 			report_checks -path_delay min_max -fields {nets cap slew input_pins} -digits {4} > Post_CTS/$new_name\_Post_cts_minmax.rpt
-			report_wns > Post_CTS_WNS/$new_name\_Post_cts_wns.rpt
-			report_tns > Post_CTS_TNS/$new_name\_Post_cts_tns.rpt
+			report_wns -digits {4} > Post_CTS_WNS/$new_name\_Post_cts_wns.rpt
+			report_tns -digits {4} > Post_CTS_TNS/$new_name\_Post_cts_tns.rpt
 			}
 		set preroute_file_path [lindex $verilog_files 2]
 		if {[file exists $preroute_file_path]} {
@@ -52,8 +52,8 @@ foreach lines $lib_dir {
 			read_spef rvmyth.spef
 			#report_checks -path_delay min_max -fields {nets cap slew input_pins} -format full_clock_expanded -digits {4} > Post_Preroute/$new_name\_Post_Preroute_minmax.rpt
 			report_checks -path_delay min_max -fields {nets cap slew input_pins} -digits {4} > Post_Layout/$new_name\_Post_layout_minmax.rpt
-			report_wns > Post_Layout_WNS/$new_name\_Post_layout_wns.rpt
-			report_tns > Post_Layout_TNS/$new_name\_Post_layout_tns.rpt
+			report_wns -digits {4} > Post_Layout_WNS/$new_name\_Post_layout_wns.rpt
+			report_tns -digits {4} > Post_Layout_TNS/$new_name\_Post_layout_tns.rpt
 			}
 	
 	
