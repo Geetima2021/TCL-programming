@@ -27,7 +27,7 @@ Sub task –
 - Next the script is further modified for simultaneous sta analysis of all the PnR netlists available. ``riscv_conf.tcl``is the modified tcl file used in sta analysis of the different netlist use in PnR flow of RISCV [Note: The netlists and the spef file are generated using openLANE flow]. The generated reports are saved in their respective folder. Apart from the minmax report, wns, tns and fep(setup) report are also generated. 
 - The script ``riscv_rpt_table_V2.tcl`` is the modified script where tns and wns values are added to the html table. The Post_CTS and Post_Layout table is also generated.
 
-Check out the following [link](https://www.youtube.com/watch?v=q2ybdJ4Na9k&list=PLhh0DTCQOBqTqkoElY57-qbamRG7LtMO0) for teaser of the video tutorial I created for the above work and this[link](https://www.youtube.com/watch?v=8y6GjBYUVnQ) for its detail description.
+Check out the following [link](https://www.youtube.com/watch?v=q2ybdJ4Na9k&list=PLhh0DTCQOBqTqkoElY57-qbamRG7LtMO0) for teaser of the video tutorial I created for the above work and this [link](https://www.youtube.com/watch?v=8y6GjBYUVnQ) for its detail description.
 
  
  ## Acknowledgement
